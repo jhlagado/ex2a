@@ -1,0 +1,25 @@
+{
+  "name": "ex2a",
+  "description": "An empty new project",
+  "slug": "ex2a",
+  "privacy": "public",
+  "sdkVersion": "14.0.0",
+  "version": "1.0.0",
+  "orientation": "portrait",
+  "primaryColor": "#cccccc",
+  "icon": "assets/icons/lagado-logo.png",
+  "loading": {
+    "icon": "assets/icons/lagado-logo.png",
+    "hideExponentText": false
+  },
+  "packagerOpts": {
+    "assetExts": ["ttf", "mp4"]
+  },
+  "ios": {
+    "supportsTablet": true,
+    "bundleIdentifier": "com.lagado.ex2a"
+  },
+  "android": {
+    "package": "com.lagado.ex2a"
+  }  
+}

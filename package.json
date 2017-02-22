@@ -1,0 +1,20 @@
+{
+  "name": "ex2a",
+  "version": "0.0.0",
+  "description": "EXERCISE 2a",
+  "author": "John Hardy",
+  "private": true,
+  "main": "main.js",
+  "dependencies": {
+    "@exponent/ex-navigation": "^2.9.1",
+    "@exponent/samples": "~1.0.2",
+    "@exponent/vector-icons": "~4.0.0",
+    "exponent": "^14.0.0",
+    "firebase": "^3.6.3",
+    "react": "~15.4.0",
+    "react-native": "https://github.com/exponent/react-native/archive/sdk-14.0.0.tar.gz",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "react-redux-firebase": "*"
+  }
+}
