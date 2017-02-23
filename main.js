@@ -141,12 +141,14 @@ class App extends Component {
         <NavigationProvider router={Router}>
           <StatusBar barStyle="light-content" />
           <RootNavigation />
-          <Button title="Log in" onPress={press}></Button>
         </NavigationProvider>
       </Provider>
     );
   }
 }
+
+          // <Button title="Log in" onPress={press}></Button>
+
 
 Exponent.registerRootComponent(App);
 

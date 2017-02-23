@@ -9,6 +9,7 @@ const todo = (state = {}, action) => {
         completed: false
       }
     case TOGGLE_TODO:
+      console.log('toggle', action.payload.id);
       if (state.id !== action.payload.id) {
         return state
       }

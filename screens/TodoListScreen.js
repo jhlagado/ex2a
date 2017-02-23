@@ -4,9 +4,9 @@ import {
     View,
     StyleSheet,
 } from 'react-native';
-import ListItem from '../components/ListItem';
 import Router from '../navigation/Router';
 import AddTodo from '../containers/AddTodo';
+import VisibleTodoList from '../containers/VisibleTodoList'
 
 export default class HomeScreen extends React.Component {
     static route = {
@@ -25,28 +25,12 @@ export default class HomeScreen extends React.Component {
         return (
             <ScrollView>
                 <AddTodo />
-                <View style={styles.container}>
-                    {
-                        [1, 2, 3, 4, 5, 6].map((item) =>
-                            <ListItem key={item}
-                                title="Todo List"
-                                description="A demo of a todo list"
-                                onPress={this._goToScreen('todoList')}
-                            />
-                        )
-                    }
-                </View>
+                <VisibleTodoList />
             </ScrollView>
         )
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fafafa',
-    },
-});
 
         // <AddTodo />
         // <VisibleTodoList />

@@ -4,6 +4,7 @@ import { addTodo } from '../store/Todo/actions'
 import {
   View,
   Button,
+  TextInput,
 } from 'react-native';
 import {
   FormLabel,
@@ -11,76 +12,40 @@ import {
   FormValidationMessage
 } from 'react-native-elements'
 
-const someFunction = (text) => {
-  // if (!text.trim()) {
-  //   return
-  // }
-  // dispatch(addTodo(input.value))
-  // input.value = ''
-}
+class AddTodo extends React.Component {
 
-const AddTodo = ({ dispatch }) => {
+  state: null;
 
-  let input = 'Hi!';
-  let textInput = null;
-  let formInput = null;
-  console.log('LOADING====>' );
-
-  const add = () => {
-    if (input && input.trim()) {
-      console.log('SUBMIT INPUT====>' + input);
-      dispatch(addTodo(input.value))
-      input = ''
-    }  
+  constructor(props) {
+    super(props);
+    this.state = { text: '' };
   }
 
-  return (
-    <View>
-      <FormLabel>Name</FormLabel>
-      <FormInput  textInputRef="textInput" onChangeText={(text) => {
-        console.log('TEXT INPUT====>' + text);
-       // input = text;
-       // console.log('formInput', Object.keys(formInput));
-      }
-      } />
-      <Button title="Add" onPress={add}></Button>
-    </View>
-  )
+  render() {
+    return (
+      <View>
+        <FormLabel>Add a todo item </FormLabel>
+        <FormInput
+          multiline={false}
+          onChangeText={(text) => {
+            this.setState({ text });
+          }}
+          onSubmitEditing={(event) => {
+            console.log('onSubmitEditing text: ', event.nativeEvent.text, Object.keys(this.props));
+            var text = this.state.text;
+            if (text && text.trim()) {
+              console.log('SUBMIT INPUT====>' + text);
+              this.props.dispatch(addTodo(text))
+              this.setState({ text: ''});
+            }
+          }}
+          value={this.state.text}
+        />
+      </View>
+    )
+  }
 }
-// ref={(ref) => formInput = ref}
 
 AddTodo = connect()(AddTodo)
 
 export default AddTodo
-
-
-
-
-      /*
-      <FormValidationMessage>Error message</FormValidationMessage>
-      
-      
-      <form onSubmit={e => {
-        e.preventDefault()
-        if (!input.value.trim()) {
-          return
-        }
-        dispatch(addTodo(input.value))
-        input.value = ''
-      }}>
-
-        <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <input className="mdl-textfield__input" type="text" id="addtodo" ref={node => {
-            input = node
-          }} />
-          <label className="mdl-textfield__label" htmlFor="addtodo">Enter the task to do...</label>
-        </div>
-
-        
-        <button type="submit" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-          Add Todo
-        </button>
-      </form>
-    </div>
-    
-    */
