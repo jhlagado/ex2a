@@ -1,6 +1,8 @@
 import 'exponent';
+import { Font } from 'exponent';
 import Exponent, { Asset, Components } from 'exponent';
 import React, { Component } from 'react';
+import { Provider } from 'react-redux'
 import { StatusBar, Button } from 'react-native';
 
 import {
@@ -11,6 +13,10 @@ import {
 
 import RootNavigation from './navigation/RootNavigation';
 import { firebaseConfig } from './config'
+
+//hack to allow browser-based cuid to be used on React Native
+global.navigator.mimeTypes = ''; //browser-fingerprint only checks the length property so an empty string is fine
+global.navigator.userAgent = 'reactnative';
 
 const assets = [
   require('./assets/images/beetle.jpg'),
@@ -24,10 +30,7 @@ const assets = [
 import Router from './navigation/Router';
 
 import * as firebase from 'firebase';
-
-// import configureStore from './store/configureStore'
-// const initialState = window.__INITIAL_STATE__ || {firebase: { authError: null }}
-// const store = configureStore(initialState)
+import store from './store'
 
 let auth = false;
 
@@ -86,6 +89,12 @@ class App extends Component {
     this._bootstrap();
   }
 
+  componentDidMount() {
+    Font.loadAsync({
+      'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
+    });
+  }
+
   _bootstrap = async () => {
     const promises = assets.map(module => Asset.fromModule(module).downloadAsync());
     await Promise.all(promises);
@@ -128,11 +137,13 @@ class App extends Component {
     }
 
     return (
+      <Provider store={store}>
         <NavigationProvider router={Router}>
           <StatusBar barStyle="light-content" />
           <RootNavigation />
           <Button title="Log in" onPress={press}></Button>
         </NavigationProvider>
+      </Provider>
     );
   }
 }
