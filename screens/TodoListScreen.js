@@ -8,7 +8,7 @@ import Router from '../navigation/Router';
 import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList'
 
-export default class HomeScreen extends React.Component {
+export default class TodoListScreen extends React.Component {
     static route = {
         navigationBar: {
             title: 'Home',

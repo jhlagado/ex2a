@@ -18,7 +18,7 @@ class AddTodo extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { text: '' };
+    this.state = { text: '' }; 
   }
 
   render() {

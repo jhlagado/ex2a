@@ -90,14 +90,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    Font.loadAsync({
-      'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
-    });
   }
 
   _bootstrap = async () => {
     const promises = assets.map(module => Asset.fromModule(module).downloadAsync());
     await Promise.all(promises);
+    await Font.loadAsync({
+      'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
+    });
     this.setState({
       bootstrapped: true,
     });

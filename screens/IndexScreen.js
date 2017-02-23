@@ -6,10 +6,10 @@ import {
 import ListItem from '../components/ListItem';
 import Router from '../navigation/Router';
 
-export default class HomeScreen extends React.Component {
+export default class IndexScreen extends React.Component {
   static route = {
     navigationBar: {
-      title: 'Home',
+      title: 'Index',
       backgroundColor: '#0084FF',
       tintColor: '#fff',
     }

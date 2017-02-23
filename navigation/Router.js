@@ -1,11 +1,11 @@
 import {
   createRouter,
-} from '@exponent/ex-navigation';
+} from '@exponent/ex-navigation'; 
 
-import HomeScreen from '../screens/HomeScreen';
-import AboutScreen from '../screens/AboutScreen';
 import TodoListScreen from '../screens/TodoListScreen';
-import TabNavigationExample from '../screens/TabNavigationExample';
+import IndexScreen from '../screens/IndexScreen';
+import AboutScreen from '../screens/AboutScreen';
+import TabNavigationExample from '../screens/TabNavigationExample'; 
 import SlidingTabNavigationExample from '../screens/SlidingTabNavigationExample';
 import AlertBarsExample from '../screens/AlertBarsExample';
 import TranslucentBarExample from '../screens/TranslucentBarExample';
@@ -15,9 +15,9 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 export default createRouter(() => ({
-  home: () => HomeScreen,
+  home: () => TodoListScreen,
+  index: () => IndexScreen,
   about: () => AboutScreen, 
-  todoList: () => TodoListScreen,
   tabNavigationExample: () => TabNavigationExample,
   slidingTabNavigationExample: () => SlidingTabNavigationExample,
   alertBarsExample: () => AlertBarsExample,
