@@ -11,6 +11,8 @@ export default class SettingsScreen extends React.Component {
   static route = {
     navigationBar: {
       title: 'Settings' ,
+      backgroundColor: '#0084FF',
+      tintColor: '#fff',
    },
   }
 

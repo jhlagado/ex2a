@@ -11,6 +11,8 @@ export default class LinksScreen extends React.Component {
   static route = {
     navigationBar: {
       title: 'Links',
+      backgroundColor: '#0084FF',
+      tintColor: '#fff',
     },
   }
 

@@ -12,6 +12,8 @@ export default class AboutScreen extends React.PureComponent {
   static route = {
     navigationBar: {
       title: 'About',
+      backgroundColor: '#0084FF',
+      tintColor: '#fff',
     },
   }
 
